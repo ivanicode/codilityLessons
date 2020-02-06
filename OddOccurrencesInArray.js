@@ -11,3 +11,22 @@ function solution(A) {
     const keys = Object.keys(unPairedNumbers);
     return parseInt(keys[0], 10);
 }
+
+console.log(solution([1, 9, 1, 9, 3]));
+
+function solution1(A) {
+    const unPairedNumbers = {};
+    A.forEach(function(number){
+        if(unPairedNumbers[number]){
+            delete unPairedNumbers[number]
+        } else {
+            unPairedNumbers[number] = true;
+        }
+    })
+    const keys = Object.keys(unPairedNumbers);
+    return parseInt(keys[0], 10);
+}
+
+
+console.log(solution1([1, 9, 1, 9, 3]));
+
