@@ -6,8 +6,13 @@ function solution(N, A) {
         if(A[i] > N){ //jezeli wartosc elementu w tablicy jest wieksza od N..
             //countersArray.fill(biggestCounter);
             lastFillValue = biggestCounter; //wypelniamy wszystkie elementy w tablicy najwieksza liczba
-        } else { //jezeli wartosc elementu w tablicy jest mniejsza od N...
+        } else { //jezeli wartosc elementu w tablicy jest mniejsza lub rowna od N...
             const index = A[i] - 1; //tworzymy zmienna ktorej wartosc bedzie rowna indexowi elementu na ktorym pracujemy
+            console.log(">>>>", i)
+            console.log(`A[${i}]`, A[i])
+            console.log(`countersArray[${index}]`, countersArray[index])
+            console.log("lastFillValue", lastFillValue)
+            console.log(countersArray)
             if(countersArray[index] < lastFillValue){ //warunek: jezeli element w tablicy jest mniejszy od ostatniej najwiekszej wartosci jaka wypelnilismy tablice
                 countersArray[index] = lastFillValue; //to nadpisujemy ja ta najwieksza wartoscia
             }
@@ -15,7 +20,10 @@ function solution(N, A) {
             if(countersArray[index] > biggestCounter){ //warunek: jezeli kazdy element tablicy jest wiekszy od najwiekszej poprzednio wartosci w tablicy
                 biggestCounter = countersArray[index]; //to najwieksza wartosc w tablicy zostaje uaktualniona
             }
+            console.log("<<<<", biggestCounter)
         }
+        console.log("after operation", countersArray)
+        console.log("===========")
     }
     for(let j = 0; j < N; j++){
         if(countersArray[j] < lastFillValue){ //warunek: jezeli jakis element w tablicy jest mniejszy od ostatniej najwiekszej liczby, ktora nadpisala wszystkie liczby w tablicy
@@ -25,7 +33,7 @@ function solution(N, A) {
     return countersArray;
 }
 
-[0, 0, 1, 2, 0, 0]
+solution(3, [2, 1, 2, 4, 3])
 
 
 /*function solution(N, A) {
