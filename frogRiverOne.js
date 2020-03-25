@@ -12,3 +12,18 @@ function solution(X, A) {
   }
   return Math.max(...filteredLeaves);
 }
+
+function solution(X, A) {
+  const  leavesObj = A.reduce((acc, value, index) => {
+      if(acc[value] === undefined){
+          acc[value] = index;
+      }
+      return acc;
+      
+  }, {} );
+  const leavesArr = Object.values(leavesObj);
+  if(leavesArr.length === X){
+      return Math.max(...leavesArr);
+  }
+  return -1;
+}
