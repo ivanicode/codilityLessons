@@ -30,3 +30,15 @@ function solution1(A) {
 
 console.log(solution1([1, 9, 1, 9, 3]));
 
+function solution(A) {
+    const unpairedValues = {};
+    for(let i = 0; i < A.length; i++){
+        const value = A[i];
+        if(unpairedValues[value]){
+            delete unpairedValues[value];
+        } else {
+            unpairedValues[value] = true;
+        }
+    }
+    return parseInt(Object.keys(unpairedValues)[0], 10)
+}
