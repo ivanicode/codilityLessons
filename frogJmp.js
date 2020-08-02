@@ -5,3 +5,9 @@ function solution(X, Y, D) {
 }
 
 console.log(solution(10, 35, 10));
+
+
+
+function solution(X, Y, D) {
+    return Math.ceil((Y - X) / D)
+}
