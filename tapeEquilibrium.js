@@ -42,3 +42,18 @@ function solution(A) {
       return Math.min(...arr);
   }
   solution([-10, -20, -30, -40, 100]);
+
+function solution(A) {
+    let firstPart = A.reduce((a, b) => a + b, 0);
+    let secondPart = 0;
+    let differences = Number.MAX_SAFE_INTEGER;
+    for(let i = 0; i < A.length -1; i++){
+        secondPart += A[i];
+        firstPart -= A[i];
+        d = Math.abs(firstPart - secondPart);
+        if(d < differences){
+        differences = d;
+        }
+    }
+    return differences;
+}
